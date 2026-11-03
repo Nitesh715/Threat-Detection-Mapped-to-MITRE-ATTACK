@@ -1,0 +1,223 @@
+{
+  "rules": [
+    {
+      "id": "AUTH-001",
+      "name": "Repeated authentication failures",
+      "type": "threshold",
+      "severity": "high",
+      "match": {"event_type": "auth_failure"},
+      "group_by": ["host", "user", "source_ip"],
+      "threshold": 5,
+      "window_minutes": 10,
+      "attack": {"technique_id": "T1110", "technique_name": "Brute Force", "tactics": ["Credential Access"]},
+      "summary": "At least five authentication failures for the same account, host, and source IP occurred within ten minutes.",
+      "data_sources": ["Authentication logs normalized to auth_failure with timestamp, host, user, and source_ip."],
+      "recommended_actions": [
+        "Review the authentication timeline and confirm whether the source is expected.",
+        "Check for a successful login from the same source after the failures."
+      ]
+    },
+    {
+      "id": "AUTH-002",
+      "name": "Authentication failures followed by success",
+      "type": "sequence",
+      "severity": "critical",
+      "start_match": {"event_type": "auth_failure"},
+      "end_match": {"event_type": "auth_success"},
+      "group_by": ["host", "user", "source_ip"],
+      "window_minutes": 15,
+      "attack": {"technique_id": "T1110", "technique_name": "Brute Force", "tactics": ["Credential Access"]},
+      "summary": "A successful authentication followed failures for the same account, host, and source IP within fifteen minutes; validate whether this represents suspected credential guessing or an expected recovery.",
+      "data_sources": ["Authentication logs normalized to auth_failure and auth_success with timestamp, host, user, and source_ip."],
+      "recommended_actions": [
+        "Validate the login with the account owner through an approved channel.",
+        "Review subsequent activity for the account and preserve relevant logs."
+      ]
+    },
+    {
+      "id": "EXEC-001",
+      "name": "PowerShell execution flagged by endpoint telemetry",
+      "type": "single",
+      "severity": "high",
+      "match": {"event_type": "suspicious_script_execution", "details.interpreter": "PowerShell"},
+      "attack": {"technique_id": "T1059.001", "technique_name": "Command and Scripting Interpreter: PowerShell", "tactics": ["Execution"]},
+      "summary": "Endpoint telemetry flagged a PowerShell execution for review; the ATT&CK mapping describes the observed interpreter, not malicious intent by itself.",
+      "data_sources": ["Endpoint process telemetry with interpreter, process ancestry, user, host, and timestamp."],
+      "recommended_actions": [
+        "Review process ancestry, user context, script block or command-line telemetry, and the related host timeline.",
+        "Do not isolate or stop a process until the alert is validated."
+      ]
+    },
+    {
+      "id": "IDENTITY-001",
+      "name": "Privileged group membership changed",
+      "type": "single",
+      "severity": "high",
+      "match": {"event_type": "privileged_group_change"},
+      "attack": {"technique_id": "T1098.007", "technique_name": "Account Manipulation: Additional Local or Domain Groups", "tactics": ["Persistence", "Privilege Escalation"]},
+      "summary": "A privileged local or domain group membership change was recorded; validate the account, group, and approval context.",
+      "data_sources": ["Identity or operating-system audit events for privileged group membership changes, including actor, target account, group, host, and timestamp."],
+      "recommended_actions": [
+        "Confirm the change was approved and identify the initiating account.",
+        "Review nearby authentication and process events on the affected host."
+      ]
+    },
+    {
+      "id": "AUTH-003",
+      "name": "Password-spray pattern across distinct accounts",
+      "type": "threshold",
+      "severity": "high",
+      "match": {"event_type": "auth_failure"},
+      "group_by": ["host", "source_ip"],
+      "distinct_by": ["user"],
+      "threshold": 5,
+      "window_minutes": 10,
+      "attack": {"technique_id": "T1110.003", "technique_name": "Brute Force: Password Spraying", "tactics": ["Credential Access"]},
+      "summary": "Authentication failures affected five or more distinct accounts on the same host from one source IP within ten minutes, a password-spraying indicator that requires investigation.",
+      "data_sources": ["Authentication logs with normalized user, host, source_ip, and timestamp; distinct user values are required."],
+      "recommended_actions": [
+        "Compare the targeted account set and source against approved identity and network activity.",
+        "Review MFA, conditional-access, and account-lockout outcomes for the affected users."
+      ]
+    },
+    {
+      "id": "PERSIST-001",
+      "name": "New scheduled task created",
+      "type": "single",
+      "severity": "high",
+      "match": {"event_type": "scheduled_task_created"},
+      "attack": {"technique_id": "T1053.005", "technique_name": "Scheduled Task/Job: Scheduled Task", "tactics": ["Execution", "Persistence", "Privilege Escalation"]},
+      "summary": "A scheduled task creation event was reported; check the task action, trigger, creator, and execution context.",
+      "data_sources": ["Windows Task Scheduler or endpoint audit telemetry with task name, action, creator, host, and timestamp."],
+      "recommended_actions": [
+        "Compare the task definition and binary path with the approved software baseline.",
+        "Confirm the task creator and execution account with the system owner."
+      ]
+    },
+    {
+      "id": "PERSIST-002",
+      "name": "Registry Run key modified",
+      "type": "single",
+      "severity": "high",
+      "match": {"event_type": "registry_run_key_modified"},
+      "attack": {"technique_id": "T1547.001", "technique_name": "Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder", "tactics": ["Persistence", "Privilege Escalation"]},
+      "summary": "A Windows Run or RunOnce autostart location changed; validate the new value and its initiating process.",
+      "data_sources": ["Windows Registry auditing for Run/RunOnce and Startup Folder changes, with value, process, user, host, and timestamp."],
+      "recommended_actions": [
+        "Inspect the changed value and referenced file using approved endpoint tooling.",
+        "Check whether the change aligns with a documented installation or update."
+      ]
+    },
+    {
+      "id": "CRED-001",
+      "name": "Suspicious LSASS memory access signal",
+      "type": "single",
+      "severity": "critical",
+      "match": {"event_type": "lsass_memory_access_suspicious"},
+      "attack": {"technique_id": "T1003.001", "technique_name": "OS Credential Dumping: LSASS Memory", "tactics": ["Credential Access"]},
+      "summary": "Endpoint telemetry flagged an unusual process access to LSASS memory, which may expose credential material.",
+      "data_sources": ["Endpoint process-access telemetry identifying the source process, target process, user, host, and timestamp."],
+      "recommended_actions": [
+        "Review process signer, ancestry, access rights, and nearby authentication events.",
+        "Follow the organization's credential-exposure procedure if the activity is confirmed."
+      ]
+    },
+    {
+      "id": "DEFENSE-001",
+      "name": "Windows Event Log configuration changed",
+      "type": "single",
+      "severity": "critical",
+      "match": {"event_type": "windows_event_log_policy_changed"},
+      "attack": {"technique_id": "T1685.001", "technique_name": "Disable or Modify Tools: Disable or Modify Windows Event Log", "tactics": ["Defense Impairment"]},
+      "summary": "Windows Event Log service or audit-policy telemetry reported a configuration change that may reduce visibility.",
+      "data_sources": ["Windows service-control, audit-policy, and Event Log configuration telemetry with actor, setting, host, and timestamp."],
+      "recommended_actions": [
+        "Confirm the change against approved maintenance and audit-policy records.",
+        "Check whether other event channels or security sensors stopped reporting at the same time."
+      ]
+    },
+    {
+      "id": "DISC-001",
+      "name": "Network service probing across multiple destinations",
+      "type": "threshold",
+      "severity": "medium",
+      "match": {"event_type": "network_probe"},
+      "group_by": ["host", "source_ip"],
+      "distinct_by": ["details.destination_ip"],
+      "threshold": 3,
+      "window_minutes": 5,
+      "attack": {"technique_id": "T1046", "technique_name": "Network Service Discovery", "tactics": ["Discovery"]},
+      "summary": "A sensor reported probes to three or more distinct destination addresses from one host and source within five minutes.",
+      "data_sources": ["Network flow, firewall, or endpoint socket telemetry with source host, destination IP, timestamp, and optional destination port."],
+      "recommended_actions": [
+        "Compare the source host and destination set with approved inventory, vulnerability scanning, and management tools.",
+        "Review process or user context associated with the probes."
+      ]
+    },
+    {
+      "id": "LATERAL-001",
+      "name": "Remote SSH session observed",
+      "type": "single",
+      "severity": "medium",
+      "match": {"event_type": "remote_ssh_session"},
+      "attack": {"technique_id": "T1021.004", "technique_name": "Remote Services: SSH", "tactics": ["Lateral Movement"]},
+      "summary": "An SSH session was reported by normalized telemetry; confirm whether the source, destination, and account are expected.",
+      "data_sources": ["SSH authentication and session logs with user, source_ip, destination host, outcome, and timestamp."],
+      "recommended_actions": [
+        "Validate the account, source address, and destination against approved administration paths.",
+        "Correlate the session with nearby authentication and process events on the destination."
+      ]
+    },
+    {
+      "id": "C2-001",
+      "name": "Repeated DNS tunneling or beaconing signal",
+      "type": "threshold",
+      "severity": "high",
+      "match": {"event_type": "dns_tunnel_signal"},
+      "group_by": ["host", "source_ip"],
+      "threshold": 3,
+      "window_minutes": 10,
+      "attack": {"technique_id": "T1071.004", "technique_name": "Application Layer Protocol: DNS", "tactics": ["Command and Control"]},
+      "summary": "DNS analytics raised three or more tunneling or beaconing signals from the same host and source in ten minutes.",
+      "data_sources": ["DNS resolver or network analytics with client host, queried domain, record type, query timing, and anomaly signal."],
+      "recommended_actions": [
+        "Review queried domains, record types, query cadence, and the process responsible for the DNS traffic.",
+        "Compare the activity with approved DNS tooling and resolver policy."
+      ]
+    },
+    {
+      "id": "EXFIL-001",
+      "name": "Sensitive file access followed by unusual outbound transfer",
+      "type": "sequence",
+      "severity": "critical",
+      "start_match": {"event_type": "sensitive_file_access"},
+      "end_match": {"event_type": "outbound_c2_transfer_anomaly"},
+      "group_by": ["host", "user"],
+      "window_minutes": 15,
+      "attack": {"technique_id": "T1041", "technique_name": "Exfiltration Over C2 Channel", "tactics": ["Exfiltration"]},
+      "summary": "Sensitive-file access was followed by an outbound transfer anomaly for the same host and user within fifteen minutes; validate the destination and process context.",
+      "data_sources": ["File-access auditing plus network-flow or proxy telemetry linking host/user activity to outbound destination and transfer volume."],
+      "recommended_actions": [
+        "Preserve the file-access and network-flow evidence and validate the destination against approved services.",
+        "Review the process responsible for the transfer and follow the organization's data-handling escalation path."
+      ]
+    },
+    {
+      "id": "INITIAL-001",
+      "name": "Email attachment followed by suspicious child process",
+      "type": "sequence",
+      "severity": "high",
+      "start_match": {"event_type": "email_attachment_opened"},
+      "end_match": {"event_type": "suspicious_attachment_child_process"},
+      "group_by": ["host", "user"],
+      "window_minutes": 15,
+      "attack": {"technique_id": "T1566.001", "technique_name": "Phishing: Spearphishing Attachment", "tactics": ["Initial Access"]},
+      "summary": "An email attachment interaction was followed by suspicious child-process telemetry for the same user and host within fifteen minutes.",
+      "data_sources": ["Email security metadata and endpoint process-creation telemetry correlated by user, host, attachment, parent process, and timestamp."],
+      "recommended_actions": [
+        "Review the message, attachment hash, process ancestry, and endpoint verdicts.",
+        "Check for subsequent persistence, credential-access, and outbound-network activity."
+      ]
+    }
+  ]
+}
