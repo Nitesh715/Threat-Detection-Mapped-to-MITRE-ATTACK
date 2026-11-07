@@ -2,6 +2,11 @@
 
 An offline-first advanced SOC capstone project. It turns normalized endpoint and network events into rule-based alerts, correlates alerts into cases, and provides a local analyst dashboard for triage and case notes.
 
+
+## Architecture overview
+
+![Threat Detection Workbench architecture](docs/architecture-diagram.svg)
+
 ## Features
 
 A defensive detection-engineering project that analyzes normalized endpoint and network events, maps detection rules to MITRE ATT&CK, correlates alerts into cases, and supports local SOC triage. This repository contains the Mini-SOC Workbench implementation and its ATT&CK-mapped detection workflow.
