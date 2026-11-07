@@ -1,8 +1,11 @@
-# Mini-SOC Workbench
+# Threat Detection Mapped to MITRE ATT&CK — Mini-SOC Workbench
 
 An offline-first advanced SOC capstone project. It turns normalized endpoint and network events into rule-based alerts, correlates alerts into cases, and provides a local analyst dashboard for triage and case notes.
 
 ## Features
+
+A defensive detection-engineering project that analyzes normalized endpoint and network events, maps detection rules to MITRE ATT&CK, correlates alerts into cases, and supports local SOC triage. This repository contains the Mini-SOC Workbench implementation and its ATT&CK-mapped detection workflow.
+
 
 - Local web dashboard with summary metrics, severity distribution, incident queue, alert list, and event timeline.
 - Event Explorer for searching every loaded event, including telemetry that did not trigger a rule.
@@ -111,3 +114,8 @@ This is a complete local capstone prototype, not a production SIEM. It analyzes 
 - [Wazuh documentation](https://documentation.wazuh.com/current/getting-started/index.html)
 - [Wazuh active response configuration](https://documentation.wazuh.com/current/user-manual/reference/ossec-conf/active-response.html)
 - [OWASP API Security Top 10](https://api-security.owasp.org/)
+
+
+## Screenshots
+
+The repository currently has no committed runtime screenshot files. To keep the portfolio accurate, add real captures from the locally running dashboard rather than fabricated images. Suggested files: screenshots/dashboard.png, screenshots/alert-details.png, screenshots/attack-coverage.png.
