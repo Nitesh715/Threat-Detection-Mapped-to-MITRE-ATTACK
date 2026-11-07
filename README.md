@@ -2,6 +2,8 @@
 
 An offline-first advanced SOC capstone project. It turns normalized endpoint and network events into rule-based alerts, correlates alerts into cases, and provides a local analyst dashboard for triage and case notes.
 
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white) ![Detection](https://img.shields.io/badge/Detection-Rule--based-informational) ![Framework](https://img.shields.io/badge/Framework-MITRE%20ATT%26CK-EF4444)
+
 
 ## Architecture overview
 
