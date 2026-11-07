@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="980" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+  <title id="title">Threat Detection Workbench dashboard mockup</title>
+  <desc id="desc">Illustrative Northstar SOC overview for the ATT&CK-mapped threat detection project. Counts and records are synthetic; this is not a live application capture.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#19273e" flood-opacity=".045"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="980" fill="#f5f7fa"/>
+
+  <!-- Left navigation -->
+  <rect width="236" height="980" fill="#101a2b"/>
+  <rect x="23" y="25" width="35" height="35" rx="10" fill="#43c49a"/>
+  <text x="40.5" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" font-weight="800" fill="#08261c">N</text>
+  <text x="69" y="39" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#ffffff">NORTHSTAR</text>
+  <text x="69" y="53" font-family="Arial,sans-serif" font-size="8" letter-spacing="1" fill="#8798b0">SECURITY OPERATIONS</text>
+  <text x="30" y="104" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.4" fill="#98a5b8">WORKSPACE</text>
+
+  <rect x="12" y="119" width="212" height="43" rx="8" fill="#20324a"/>
+  <rect x="12" y="129" width="3" height="23" rx="1.5" fill="#3bc59a"/>
+  <text x="37" y="146" font-family="Arial,sans-serif" font-size="18" fill="#4dd0a4">◫</text>
+  <text x="63" y="146" font-family="Arial,sans-serif" font-size="12" font-weight="600" fill="#ffffff">Overview</text>
+
+  <text x="37" y="201" font-family="Arial,sans-serif" font-size="17" fill="#92a3ba">▤</text>
+  <text x="63" y="201" font-family="Arial,sans-serif" font-size="12" fill="#a9b6c9">Incident queue</text>
+  <rect x="186" y="185" width="25" height="20" rx="10" fill="#30445f"/>
+  <text x="198.5" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#dce6f3">8</text>
+
+  <text x="37" y="245" font-family="Arial,sans-serif" font-size="17" fill="#92a3ba">⌕</text>
+  <text x="63" y="245" font-family="Arial,sans-serif" font-size="12" fill="#a9b6c9">Event explorer</text>
+  <rect x="176" y="229" width="35" height="20" rx="10" fill="#30445f"/>
+  <text x="193.5" y="243" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#dce6f3">124</text>
+
+  <text x="37" y="289" font-family="Arial,sans-serif" font-size="17" fill="#92a3ba">⌖</text>
+  <text x="63" y="289" font-family="Arial,sans-serif" font-size="12" fill="#a9b6c9">ATT&amp;CK coverage</text>
+  <rect x="182" y="273" width="29" height="20" rx="10" fill="#30445f"/>
+  <text x="196.5" y="287" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#dce6f3">14</text>
+
+  <rect x="16" y="824" width="204" height="55" rx="9" fill="#17263a" stroke="#2b3b53"/>
+  <circle cx="33" cy="850" r="4" fill="#41c798"/>
+  <circle cx="33" cy="850" r="7" fill="none" stroke="#41c798" stroke-opacity=".16" stroke-width="3"/>
+  <text x="48" y="847" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#dfe8f2">LOCAL LAB</text>
+  <text x="48" y="864" font-family="Arial,sans-serif" font-size="10" fill="#8798b0">Synthetic telemetry</text>
+  <text x="21" y="918" font-family="Arial,sans-serif" font-size="8" letter-spacing=".8" fill="#74859e">MINI-SOC WORKBENCH</text>
+  <text x="210" y="918" text-anchor="end" font-family="Arial,sans-serif" font-size="8" fill="#74859e">v0.1.0</text>
+
+  <!-- Header -->
+  <rect x="236" y="0" width="1204" height="65" fill="#f5f7fa"/>
+  <path d="M236 64.5H1440" stroke="#e7ebf1"/>
+  <text x="274" y="38" font-family="Arial,sans-serif" font-size="11" fill="#8a95a6">Operations</text>
+  <text x="332" y="38" font-family="Arial,sans-serif" font-size="11" fill="#c4cbd5">/</text>
+  <text x="345" y="38" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#38465b">Overview</text>
+  <circle cx="1188" cy="33" r="4" fill="#41c798"/>
+  <text x="1200" y="37" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing=".7" fill="#668071">LOCAL ANALYSIS</text>
+  <rect x="1312" y="17" width="34" height="34" rx="8" fill="#ffffff" stroke="#e7ebf1"/>
+  <text x="1329" y="41" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" fill="#657188">↻</text>
+  <circle cx="1380" cy="34" r="15" fill="#e8edf7"/>
+  <text x="1380" y="37" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#586e9b">SA</text>
+
+  <!-- Page title -->
+  <text x="274" y="111" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.45" fill="#7d8a9b">SECURITY OPERATIONS CENTER</text>
+  <text x="274" y="145" font-family="Arial,sans-serif" font-size="25" font-weight="650" letter-spacing="-.6" fill="#1b283d">Good day, analyst</text>
+  <text x="274" y="168" font-family="Arial,sans-serif" font-size="12" fill="#8793a3">Here’s the current picture from your isolated SOC lab.</text>
+  <circle cx="1277" cy="151" r="4" fill="#41c798"/>
+  <circle cx="1277" cy="151" r="7" fill="none" stroke="#41c798" stroke-opacity=".14" stroke-width="3"/>
+  <text x="1290" y="155" font-family="Arial,sans-serif" font-size="9" fill="#8994a3">Updated just now</text>
+
+  <!-- Summary metrics -->
+  <g filter="url(#shadow)">
+    <rect x="274" y="193" width="270" height="112" rx="9" fill="#ffffff" stroke="#e8ecf2"/>
+    <rect x="559" y="193" width="270" height="112" rx="9" fill="#ffffff" stroke="#e8ecf2"/>
+    <rect x="844" y="193" width="270" height="112" rx="9" fill="#ffffff" stroke="#e8ecf2"/>
+    <rect x="1129" y="193" width="270" height="112" rx="9" fill="#ffffff" stroke="#e8ecf2"/>
+  </g>
+  <text x="291" y="220" font-family="Arial,sans-serif" font-size="10" fill="#7f8b9c">Open investigations</text>
+  <text x="512" y="220" text-anchor="end" font-family="Arial,sans-serif" font-size="19" fill="#59b792">◎</text>
+  <text x="291" y="264" font-family="Arial,sans-serif" font-size="30" font-weight="650" fill="#1b283d">5</text>
+  <text x="291" y="286" font-family="Arial,sans-serif" font-size="9" fill="#98a2b0">Open or investigating</text>
+
+  <text x="576" y="220" font-family="Arial,sans-serif" font-size="10" fill="#7f8b9c">Correlated cases</text>
+  <text x="797" y="220" text-anchor="end" font-family="Arial,sans-serif" font-size="18" fill="#5385e8">▤</text>
+  <text x="576" y="264" font-family="Arial,sans-serif" font-size="30" font-weight="650" fill="#1b283d">8</text>
+  <text x="576" y="286" font-family="Arial,sans-serif" font-size="9" fill="#98a2b0">Built from related alerts</text>
+
+  <text x="861" y="220" font-family="Arial,sans-serif" font-size="10" fill="#7f8b9c">Detection alerts</text>
+  <text x="1082" y="220" text-anchor="end" font-family="Arial,sans-serif" font-size="18" fill="#e5a640">⌁</text>
+  <text x="861" y="264" font-family="Arial,sans-serif" font-size="30" font-weight="650" fill="#1b283d">19</text>
+  <text x="861" y="286" font-family="Arial,sans-serif" font-size="9" fill="#98a2b0">Across configured rules</text>
+
+  <text x="1146" y="220" font-family="Arial,sans-serif" font-size="10" fill="#7f8b9c">Events analyzed</text>
+  <text x="1367" y="220" text-anchor="end" font-family="Arial,sans-serif" font-size="18" fill="#9671d7">≋</text>
+  <text x="1146" y="264" font-family="Arial,sans-serif" font-size="30" font-weight="650" fill="#1b283d">124</text>
+  <text x="1146" y="286" font-family="Arial,sans-serif" font-size="9" fill="#98a2b0">Normalized lab telemetry</text>
+
+  <!-- Alert severity panel -->
+  <g filter="url(#shadow)">
+    <rect x="274" y="324" width="552" height="258" rx="9" fill="#ffffff" stroke="#e8ecf2"/>
+    <rect x="844" y="324" width="555" height="258" rx="9" fill="#ffffff" stroke="#e8ecf2"/>
+    <rect x="274" y="600" width="1125" height="272" rx="9" fill="#ffffff" stroke="#e8ecf2"/>
+  </g>
+  <text x="293" y="351" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing="1.2" fill="#98a5b8">DETECTION ACTIVITY</text>
+  <text x="293" y="372" font-family="Arial,sans-serif" font-size="14" font-weight="650" fill="#263349">Alert severity</text>
+  <text x="806" y="359" text-anchor="end" font-family="Arial,sans-serif" font-size="9" fill="#8d98a7">19 alerts</text>
+  <text x="293" y="407" font-family="Arial,sans-serif" font-size="9" fill="#8994a3">Critical</text>
+  <rect x="355" y="398" width="360" height="8" rx="4" fill="#edf0f3"/><rect x="355" y="398" width="76" height="8" rx="4" fill="#d65561"/>
+  <text x="792" y="407" text-anchor="end" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#566276">4</text>
+  <text x="293" y="436" font-family="Arial,sans-serif" font-size="9" fill="#8994a3">High</text>
+  <rect x="355" y="427" width="360" height="8" rx="4" fill="#edf0f3"/><rect x="355" y="427" width="171" height="8" rx="4" fill="#e79a58"/>
+  <text x="792" y="436" text-anchor="end" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#566276">9</text>
+  <text x="293" y="465" font-family="Arial,sans-serif" font-size="9" fill="#8994a3">Medium</text>
+  <rect x="355" y="456" width="360" height="8" rx="4" fill="#edf0f3"/><rect x="355" y="456" width="114" height="8" rx="4" fill="#e6bd57"/>
+  <text x="792" y="465" text-anchor="end" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#566276">6</text>
+  <path d="M293 489H807" stroke="#f0f2f5"/>
+  <circle cx="298" cy="515" r="3" fill="#d65561"/><text x="307" y="518" font-family="Arial,sans-serif" font-size="8" fill="#8994a3">Critical</text>
+  <circle cx="374" cy="515" r="3" fill="#e79a58"/><text x="383" y="518" font-family="Arial,sans-serif" font-size="8" fill="#8994a3">High</text>
+  <circle cx="435" cy="515" r="3" fill="#e6bd57"/><text x="444" y="518" font-family="Arial,sans-serif" font-size="8" fill="#8994a3">Medium</text>
+  <circle cx="516" cy="515" r="3" fill="#51b997"/><text x="525" y="518" font-family="Arial,sans-serif" font-size="8" fill="#8994a3">Low</text>
+  <text x="293" y="557" font-family="Arial,sans-serif" font-size="8" fill="#a0a9b6">Illustrative sample values</text>
+
+  <!-- Case posture -->
+  <text x="863" y="351" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing="1.2" fill="#98a5b8">CASE POSTURE</text>
+  <text x="863" y="372" font-family="Arial,sans-serif" font-size="14" font-weight="650" fill="#263349">Investigation status</text>
+  <text x="1369" y="371" text-anchor="end" font-family="Arial,sans-serif" font-size="19" fill="#92a3ba">◌</text>
+  <text x="863" y="421" font-family="Arial,sans-serif" font-size="29" font-weight="650" fill="#1b283d">8</text>
+  <text x="894" y="421" font-family="Arial,sans-serif" font-size="10" fill="#94a0ae">total cases</text>
+  <rect x="863" y="439" width="500" height="10" rx="5" fill="#edf0f3"/>
+  <rect x="863" y="439" width="188" height="10" rx="5" fill="#e6a544"/>
+  <rect x="1055" y="439" width="115" height="10" rx="5" fill="#5485e8"/>
+  <rect x="1174" y="439" width="189" height="10" rx="5" fill="#42b28c"/>
+  <text x="863" y="482" font-family="Arial,sans-serif" font-size="8" fill="#8d98a7">● Open</text>
+  <text x="863" y="502" font-family="Arial,sans-serif" font-size="12" font-weight="650" fill="#4e5b6d">3</text>
+  <text x="1024" y="482" font-family="Arial,sans-serif" font-size="8" fill="#8d98a7">● Investigating</text>
+  <text x="1024" y="502" font-family="Arial,sans-serif" font-size="12" font-weight="650" fill="#4e5b6d">2</text>
+  <text x="1222" y="482" font-family="Arial,sans-serif" font-size="8" fill="#8d98a7">● Resolved</text>
+  <text x="1222" y="502" font-family="Arial,sans-serif" font-size="12" font-weight="650" fill="#4e5b6d">3</text>
+  <text x="863" y="557" font-family="Arial,sans-serif" font-size="8" fill="#a0a9b6">Synthetic training data · no live telemetry</text>
+
+  <!-- Incident queue -->
+  <text x="293" y="630" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing="1.2" fill="#98a5b8">PRIORITY WORK</text>
+  <text x="293" y="652" font-family="Arial,sans-serif" font-size="14" font-weight="650" fill="#263349">Incident queue</text>
+  <text x="1379" y="650" text-anchor="end" font-family="Arial,sans-serif" font-size="9" font-weight="600" fill="#58957f">View all cases →</text>
+  <rect x="274" y="672" width="1125" height="31" fill="#fafbfc"/>
+  <path d="M274 703H1399" stroke="#edf0f4"/>
+  <text x="293" y="692" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing=".6" fill="#9aa4b1">CASE</text>
+  <text x="657" y="692" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing=".6" fill="#9aa4b1">SEVERITY</text>
+  <text x="779" y="692" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing=".6" fill="#9aa4b1">RISK</text>
+  <text x="883" y="692" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing=".6" fill="#9aa4b1">STATUS</text>
+  <text x="1040" y="692" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing=".6" fill="#9aa4b1">HOST</text>
+  <text x="1244" y="692" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing=".6" fill="#9aa4b1">LAST SEEN</text>
+
+  <path d="M274 758H1399M274 813H1399" stroke="#f0f2f5"/>
+  <text x="293" y="730" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#344156">Repeated authentication failures</text>
+  <text x="293" y="746" font-family="Arial,sans-serif" font-size="8" fill="#98a2b0">CASE-0017</text>
+  <rect x="657" y="718" width="60" height="20" rx="10" fill="#fff0f1"/><circle cx="668" cy="728" r="2.5" fill="#c84753"/>
+  <text x="678" y="731" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#c84753">CRITICAL</text>
+  <text x="779" y="731" font-family="Arial,sans-serif" font-size="10" font-weight="650" fill="#526073">92</text>
+  <rect x="803" y="725" width="38" height="4" rx="2" fill="#edf0f3"/><rect x="803" y="725" width="34" height="4" rx="2" fill="#d65561"/>
+  <rect x="883" y="718" width="44" height="20" rx="10" fill="#fff5df"/><text x="905" y="731" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#a97627">OPEN</text>
+  <text x="1040" y="731" font-family="Arial,sans-serif" font-size="9" fill="#5d6b7e">win-lab-01</text>
+  <text x="1244" y="731" font-family="Arial,sans-serif" font-size="9" fill="#667387">14:22 UTC</text>
+
+  <text x="293" y="785" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#344156">Suspicious PowerShell execution</text>
+  <text x="293" y="801" font-family="Arial,sans-serif" font-size="8" fill="#98a2b0">CASE-0014</text>
+  <rect x="657" y="773" width="48" height="20" rx="10" fill="#fff5e8"/><circle cx="668" cy="783" r="2.5" fill="#c77c38"/>
+  <text x="678" y="786" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#c77c38">HIGH</text>
+  <text x="779" y="786" font-family="Arial,sans-serif" font-size="10" font-weight="650" fill="#526073">81</text>
+  <rect x="803" y="780" width="38" height="4" rx="2" fill="#edf0f3"/><rect x="803" y="780" width="30" height="4" rx="2" fill="#e08c50"/>
+  <rect x="883" y="773" width="89" height="20" rx="10" fill="#eef3ff"/><text x="927.5" y="786" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#4f76c7">INVESTIGATING</text>
+  <text x="1040" y="786" font-family="Arial,sans-serif" font-size="9" fill="#5d6b7e">workstation-02</text>
+  <text x="1244" y="786" font-family="Arial,sans-serif" font-size="9" fill="#667387">13:58 UTC</text>
+
+  <text x="293" y="840" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#344156">Multi-destination network probing</text>
+  <text x="293" y="856" font-family="Arial,sans-serif" font-size="8" fill="#98a2b0">CASE-0012</text>
+  <rect x="657" y="828" width="48" height="20" rx="10" fill="#fff5e8"/><circle cx="668" cy="838" r="2.5" fill="#c77c38"/>
+  <text x="678" y="841" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#c77c38">HIGH</text>
+  <text x="779" y="841" font-family="Arial,sans-serif" font-size="10" font-weight="650" fill="#526073">74</text>
+  <rect x="803" y="835" width="38" height="4" rx="2" fill="#edf0f3"/><rect x="803" y="835" width="27" height="4" rx="2" fill="#e08c50"/>
+  <rect x="883" y="828" width="44" height="20" rx="10" fill="#fff5df"/><text x="905" y="841" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="#a97627">OPEN</text>
+  <text x="1040" y="841" font-family="Arial,sans-serif" font-size="9" fill="#5d6b7e">linux-edge-02</text>
+  <text x="1244" y="841" font-family="Arial,sans-serif" font-size="9" fill="#667387">13:41 UTC</text>
+
+  <text x="274" y="910" font-family="Arial,sans-serif" font-size="9" fill="#a0a9b6">Threat Detection · Analysis-only demo using synthetic events</text>
+  <rect x="1148" y="887" width="251" height="31" rx="15.5" fill="#fff8e9" stroke="#f3e3bb"/>
+  <text x="1273.5" y="907" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing=".4" fill="#9a6d35">ILLUSTRATIVE MOCKUP · NOT LIVE DATA</text>
+</svg>
+
