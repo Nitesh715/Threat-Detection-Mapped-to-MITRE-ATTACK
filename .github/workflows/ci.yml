@@ -38,8 +38,17 @@ jobs:
       - name: Run tests when present
         shell: bash
         run: |
-          if find . -path './.git' -prune -o -path './.venv' -prune -o -type f \( -name 'test_*.py' -o -name '*_test.py' \) -print -quit | grep -q .; then
-            python -m pytest -q
+          if find . -path './.git' -prune -o -path './.venv' -prune -o -type f \\( -name 'test_*.py' -o -name '*_test.py' \\) -print -quit | grep -q .; then
+            if python -m pytest -q; then
+              :
+            else
+              pytest_status=$?
+              if [[ "$pytest_status" -eq 5 ]]; then
+                echo "No Python tests were collected; compile check completed."
+              else
+                exit "$pytest_status"
+              fi
+            fi
           else
             echo "No Python test files found; compile check completed."
           fi
